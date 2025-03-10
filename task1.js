@@ -5,3 +5,22 @@
 // який створений у файлі index.html
 // Запустити програму за допомогою Live Server
 // Перевірити за допомогою команди npm tests/task1.test.js 
+fetch \("https://jsonplaceholder.typicode.com/users")
+.then(responce =>.ok) {
+if (!response.ok) {
+  throw new Error ("Response Error");
+
+}
+  return responce.json();
+})
+.then(users => {
+  const usersList = document.querySelector(".userList);
+  users.forEach(user => {
+    const listItem = document.createElement("li");
+    listItem.textContent = user.name;
+    userList.appendChild(listItem);
+  });
+})
+.catch(error => {
+  console.error("Fetching users' error:", error);
+});
